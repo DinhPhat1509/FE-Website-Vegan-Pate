@@ -1,0 +1,2148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Điều Vàng Việt - Pate Thuần Chay</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #C78642;
+            --secondary: #E6B325;
+            --accent: #8B5A2B;
+            --text-dark: #2D2A2A;
+            --text-light: #6E6C6C;
+            --white: #FFFFFF;
+            --off-white: #FAF9F7;
+            --bg-light: #F8F6F2;
+            --gradient: linear-gradient(135deg, #C78642, #E6B325);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
+            --transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-color: var(--white);
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-light {
+            background-color: var(--bg-light);
+        }
+        
+        .section-white {
+            background-color: var(--white);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: none;
+            outline: none;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 6px 15px rgba(199, 134, 66, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(139, 90, 43, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+        
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(199, 134, 66, 0.3);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title span {
+            display: block;
+            color: var(--primary);
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+        
+        .section-title h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 5px;
+        }
+        
+        .section-title p {
+            max-width: 650px;
+            margin: 0 auto;
+            color: var(--text-light);
+            font-size: 17px;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-gradient {
+            background-image: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .header.scrolled {
+            padding: 10px 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .logo-text span {
+            display: block;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .nav-menu {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-list {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-item a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-dark);
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        .nav-item a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .nav-item a:hover, .nav-item a.active {
+            color: var(--primary);
+        }
+        
+        .nav-item a:hover:after, .nav-item a.active:after {
+            width: 100%;
+        }
+        
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(90, 46, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/api/placeholder/1920/1080') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 15px;
+            animation: fadeIn 1s ease;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-subtitle {
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        
+        .hero-title {
+            font-size: 56px;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+        
+        .hero-title span {
+            color: var(--secondary);
+        }
+        
+        .hero-description {
+            font-size: 18px;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        .scroll-down i {
+            font-size: 24px;
+            color: var(--white);
+        }
+        
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-img-wrapper {
+            position: relative;
+        }
+        
+        .about-img {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            transition: var(--transition);
+        }
+        
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-img-shape {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: var(--gradient);
+            border-radius: 50%;
+            bottom: -50px;
+            left: -50px;
+            z-index: -1;
+            opacity: 0.2;
+        }
+        
+        .about-content h3 {
+            font-size: 36px;
+            margin-bottom: 25px;
+            color: var(--text-dark);
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            font-size: 16px;
+        }
+        
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .feature-icon {
+            min-width: 60px;
+            height: 60px;
+            background: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .feature-content h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+        
+        .feature-content p {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 0;
+        }
+        
+        /* Products Section */
+        .product-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+        
+        .filter-btn {
+            padding: 10px 25px;
+            border-radius: 30px;
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .product-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 15px;
+            background: var(--primary);
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 30px;
+            z-index: 2;
+        }
+        
+        .product-card.best-seller .product-badge {
+            background: var(--secondary);
+        }
+        
+        .product-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+        
+        .product-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(199, 134, 66, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .product-card:hover .product-overlay {
+            opacity: 1;
+        }
+        
+        .product-action {
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 18px;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .product-action:hover {
+            background: var(--accent);
+            color: var(--white);
+        }
+        
+        .product-card:hover .product-action {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .product-card:hover .product-action:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .product-card:hover .product-action:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .product-card:hover .product-action:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .product-info {
+            padding: 25px;
+        }
+        
+        .product-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .price-new {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .price-old {
+            font-size: 16px;
+            color: var(--text-light);
+            text-decoration: line-through;
+        }
+        
+        .product-description {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+        
+        .product-features {
+            margin-bottom: 20px;
+        }
+        
+        .product-features li {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        
+        .product-features li i {
+            color: var(--secondary);
+            font-size: 12px;
+        }
+        
+        .product-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .product-rating {
+            display: flex;
+            gap: 2px;
+            color: #FFD700;
+            font-size: 14px;
+        }
+        
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .team-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .team-img {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .team-card:hover .team-img img {
+            transform: scale(1.1);
+        }
+        
+        .team-content {
+            padding: 25px;
+        }
+        
+        .team-name {
+            font-size: 22px;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+        }
+        
+        .team-position {
+            color: var(--primary);
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .team-description {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 16px;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-5px);
+        }
+        
+        /* Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .value-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .value-card:hover::before {
+            height: 100%;
+            opacity: 0.05;
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: var(--primary);
+            margin: 0 auto 25px;
+            transition: var(--transition);
+        }
+        
+        .value-card:hover .value-icon {
+            background: var(--primary);
+            color: var(--white);
+            transform: rotateY(360deg);
+        }
+        
+        .value-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .value-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .value-description {
+            font-size: 15px;
+            color: var(--text-light);
+        }
+        
+        /* Business Model Section */
+        .business-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+        
+        .tab-btn {
+            padding: 12px 25px;
+            border-radius: 30px;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            outline: none;
+        }
+        
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 5px 15px rgba(199, 134, 66, 0.3);
+        }
+        
+        .tab-content {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .tab-content h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+        
+        .tab-content p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+        
+        .tab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .tab-card {
+            background: var(--bg-light);
+            border-radius: 15px;
+            padding: 25px;
+            transition: var(--transition);
+        }
+        
+        .tab-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+        
+        .tab-card h4 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+        
+        .tab-card-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            color: var(--text-light);
+        }
+        
+        .tab-card-list li i {
+            color: var(--primary);
+            font-size: 14px;
+        }
+        
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+        }
+        
+        .contact-info h3 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            color: var(--text-dark);
+        }
+        
+        .contact-info p {
+            margin-bottom: 30px;
+            color: var(--text-light);
+        }
+        
+        .contact-list {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            min-width: 50px;
+            height: 50px;
+            background: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 20px;
+        }
+        
+        .contact-text h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+        }
+        
+        .contact-text p, .contact-text a {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+        
+        .contact-text a:hover {
+            color: var(--primary);
+        }
+        
+        .contact-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .contact-social a {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 16px;
+            transition: var(--transition);
+        }
+        
+        .contact-social a:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-5px);
+        }
+        
+        .contact-form {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid #e1e1e1;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(199, 134, 66, 0.1);
+        }
+        
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #2D2A2A;
+            color: var(--white);
+            padding-top: 80px;
+        }
+        
+        .footer-top {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-widget h4 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            color: var(--white);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-widget h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .footer-widget p {
+            margin-bottom: 20px;
+            color: #aaa;
+            font-size: 15px;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        .footer-contact li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: #aaa;
+        }
+        
+        .footer-contact li i {
+            color: var(--primary);
+            font-size: 18px;
+            margin-top: 3px;
+        }
+        
+        .footer-newsletter p {
+            margin-bottom: 20px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            height: 50px;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 0 20px;
+            border: none;
+            border-radius: 25px 0 0 25px;
+            font-size: 15px;
+            font-family: 'Montserrat', sans-serif;
+            outline: none;
+        }
+        
+        .newsletter-btn {
+            width: 50px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 0 25px 25px 0;
+            cursor: pointer;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+        
+        .newsletter-btn:hover {
+            background: var(--secondary);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        .footer-bottom a {
+            color: var(--primary);
+        }
+        
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 99;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+            bottom: 30px;
+        }
+        
+        .back-to-top:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive Design */
+        @media screen and (max-width: 1024px) {
+            .hero-title {
+                font-size: 48px;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 36px;
+            }
+            
+            .about-features,
+            .product-features {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                padding: 40px 20px;
+                box-shadow: var(--shadow-md);
+                transition: var(--transition);
+                z-index: 99;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-list {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-toggle {
+                display: block;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-description {
+                font-size: 16px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+                max-width: 200px;
+                margin: 0 auto;
+            }
+            
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+            
+            .tab-content {
+                padding: 30px 20px;
+            }
+            
+            .tab-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form {
+                padding: 30px 20px;
+            }
+        }
+        
+        @media screen and (max-width: 576px) {
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .product-img {
+                height: 200px;
+            }
+            
+            .filter-btn {
+                padding: 8px 20px;
+                font-size: 14px;
+            }
+            
+            .tab-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <div class="logo-img">
+                        <img src="/img/logo.png" alt="Logo">
+                    </div>
+                    <div class="logo-text">
+                        Điều Vàng Việt
+                        <span>Pate Thuần Chay</span>
+                    </div>
+                </a>
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="#home" class="active">Trang Chủ</a></li>
+                        <li class="nav-item"><a href="#about">Về Chúng Tôi</a></li>
+                        <li class="nav-item"><a href="#products">Sản Phẩm</a></li>
+                        <li class="nav-item"><a href="#team">Đội Ngũ</a></li>
+                        <li class="nav-item"><a href="#values">Giá Trị Cốt Lõi</a></li>
+                        <li class="nav-item"><a href="#business">Mô Hình Kinh Doanh</a></li>
+                        <li class="nav-item"><a href="#contact">Liên Hệ</a></li>
+                    </ul>
+                </div>
+                <button class="nav-toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h5 class="hero-subtitle">Ẩm Thực Thuần Chay Việt Nam</h5>
+            <h1 class="hero-title">Pate Thuần Chay <span>"Điều Vàng Việt"</span></h1>
+            <p class="hero-description">Hương vị béo ngậy, thơm ngon đặc trưng của hạt điều Việt Nam trong mỗi hũ pate. Giàu dinh dưỡng, an toàn và tuyệt đối thuần chay.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary">Khám Phá Sản Phẩm</a>
+                <a href="#about" class="btn btn-outline">Tìm Hiểu Thêm</a>
+            </div>
+        </div>
+        <div class="scroll-down" id="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section section-light" id="about">
+        <div class="container">
+            <div class="section-title">
+                <span>Câu Chuyện Của Chúng Tôi</span>
+                <h2>Về Chúng Tôi</h2>
+                <p>Khởi nguồn từ ý tưởng tận dụng tối đa nguồn nông sản Việt Nam và mong muốn mang đến sản phẩm thuần chay chất lượng cao.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-img-wrapper">
+                    <div class="about-img">
+                        <img src="/img/img_info.jpg" alt="Về Điều Vàng Việt">
+                    </div>
+                    <div class="about-img-shape"></div>
+                </div>
+                <div class="about-content">
+                    <h3>Pate Điều Vàng - Tinh Hoa Ẩm Thực Việt</h3>
+                    <p>Pate điều vàng quê hương là sản phẩm giàu dinh dưỡng với hương vị đậm đà, thơm ngon đặc trưng của hạt điều. Sản phẩm được làm từ hạt điều vụn kết hợp với các nguyên liệu khác như hạnh nhân, hành tây,... không chỉ mang lại chất lượng vượt trội mà còn đáp ứng nhu cầu cho những người bận rộn hay những ai tìm kiếm một nguồn năng lượng dồi dào, lành mạnh.</p>
+                    <p>Với ý tưởng tận dụng tối đa nguồn nguyên liệu nông sản, pate hạt điều không chỉ góp phần giảm thiểu lãng phí mà còn mang đến một lựa chọn thực phẩm giàu dinh dưỡng và lành mạnh cho cộng đồng.</p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>100% Thuần Chay</h4>
+                                <p>Sản phẩm không chứa bất kỳ thành phần nào từ động vật, phù hợp cho người ăn chay và thuần chay.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Giàu Dinh Dưỡng</h4>
+                                <p>Giàu protein, chất béo không bão hòa, vitamin E, magie, đồng, kẽm hỗ trợ sức khỏe tổng thể.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>An Toàn Thực Phẩm</h4>
+                                <p>Được sản xuất theo quy trình nghiêm ngặt, đảm bảo vệ sinh an toàn thực phẩm.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Đa Dạng Ứng Dụng</h4>
+                                <p>Có thể dùng để phết bánh mì hoặc kết hợp với nhiều món ăn khác từ mặn đến ngọt.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section section-white" id="products">
+        <div class="container">
+            <div class="section-title">
+                <span>Sản Phẩm Của Chúng Tôi</span>
+                <h2>Pate Thuần Chay Chất Lượng Cao</h2>
+                <p>Khám phá các dòng sản phẩm pate thuần chay từ hạt điều với hương vị độc đáo và giá trị dinh dưỡng vượt trội.</p>
+            </div>
+            <div class="product-filters">
+                <button class="filter-btn active" data-filter="all">Tất Cả</button>
+                <button class="filter-btn" data-filter="classic">Truyền Thống</button>
+                <button class="filter-btn" data-filter="premium">Cao Cấp</button>
+                <button class="filter-btn" data-filter="special">Đặc Biệt</button>
+            </div>
+            <div class="products-grid">
+                <div class="product-card best-seller" data-category="classic">
+                    <div class="product-badge">Bán Chạy</div>
+                    <div class="product-img">
+                        <img src="/img/pate_truyenthong_nho.jpg" alt="Pate Thuần Chay Truyền Thống">
+                        <div class="product-overlay">
+                            <a href="#" class="product-action">
+                                <i class="fas fa-shopping-cart"></i>
+                            </a>
+                            <a href="#" class="product-action">
+                                <i class="fas fa-heart"></i>
+                            </a>
+                            <a href="#" class="product-action">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Pate Thuần Chay Truyền Thống (Nhỏ)</h3>
+                        <div class="product-price">
+                            <span class="price-new">59.000 VNĐ</span>
+                            <span class="price-old">75.000 VNĐ</span>
+                        </div>
+                        <p class="product-description">Pate thuần chay từ hạt điều vụn nguyên chất với công thức truyền thống, hương vị đậm đà, thơm ngon.</p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check"></i> Nguyên liệu: Hạt điều vụn nguyên chất</li>
+                            <li><i class="fas fa-check"></i> Thành phần: 100% thuần chay</li>
+                            <li><i class="fas fa-check"></i> Trọng lượng: 170g</li>
+                            <li><i class="fas fa-check"></i> Hạn sử dụng: 3 tháng</li>
+                        </ul>
+                        <div class="product-bottom">
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <a href="#" class="btn btn-primary">Mua Ngay</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card best-seller" data-category="classic">
+                    <div class="product-badge">Bán Chạy</div>
+                    <div class="product-img">
+                        <img src="/img/pate_truyenthong_nho.jpg" alt="Pate Thuần Chay Truyền Thống">
+                        <div class="product-overlay">
+                            <a href="#" class="product-action">
+                                <i class="fas fa-shopping-cart"></i>
+                            </a>
+                            <a href="#" class="product-action">
+                                <i class="fas fa-heart"></i>
+                            </a>
+                            <a href="#" class="product-action">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Pate Thuần Chay Truyền Thống (Lớn)</h3>
+                        <div class="product-price">
+                            <span class="price-new">85.000 VNĐ</span>
+                            <span class="price-old">110.000 VNĐ</span>
+                        </div>
+                        <p class="product-description">Pate thuần chay từ hạt điều vụn nguyên chất với công thức truyền thống, hương vị đậm đà, thơm ngon.</p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check"></i> Nguyên liệu: Hạt điều vụn nguyên chất</li>
+                            <li><i class="fas fa-check"></i> Thành phần: 100% thuần chay</li>
+                            <li><i class="fas fa-check"></i> Trọng lượng: 350g</li>
+                            <li><i class="fas fa-check"></i> Hạn sử dụng: 3 tháng</li>
+                        </ul>
+                        <div class="product-bottom">
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <a href="#" class="btn btn-primary">Mua Ngay</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-category="premium">
+                    <div class="product-badge">Coming Soon</div>
+                    <div class="product-img">
+                        <img src="/img/pate_hanhnhan.jpg" alt="Pate Thuần Chay Hạnh Nhân">
+                        <div class="product-overlay">
+                            <a href="#" class="product-action">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Pate Thuần Chay Hạnh Nhân</h3>
+                        <div class="product-price">
+                            <span class="price-new">1xx.xxx VNĐ</span>
+                        </div>
+                        <p class="product-description">Sự kết hợp tinh tế giữa hạt điều và hạnh nhân, tạo nên hương vị độc đáo, béo ngậy và thơm ngon.</p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check"></i> Nguyên liệu: Hạt điều, hạnh nhân</li>
+                            <li><i class="fas fa-check"></i> Thành phần: 100% thuần chay</li>
+                            <li><i class="fas fa-check"></i> Trọng lượng: 125g</li>
+                            <li><i class="fas fa-check"></i> Hạn sử dụng: 3 tháng</li>
+                        </ul>
+                        <div class="product-bottom">
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="btn btn-secondary">Coming Soon</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-category="special">
+                    <div class="product-badge">Coming Soon</div>
+                    <div class="product-img">
+                        <img src="/img/pate_hanhnuong.jpg" alt="Pate Thuần Chay Hành Nướng">
+                        <div class="product-overlay">
+                            <a href="#" class="product-action">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Pate Thuần Chay Hành Nướng</h3>
+                        <div class="product-price">
+                            <span class="price-new">9x.xxx VNĐ</span>
+                        </div>
+                        <p class="product-description">Hương vị đặc biệt với hành nướng thơm ngon, kết hợp cùng hạt điều tạo nên vị umami đặc trưng.</p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check"></i> Nguyên liệu: Hạt điều, hành tây nướng</li>
+                            <li><i class="fas fa-check"></i> Thành phần: 100% thuần chay</li>
+                            <li><i class="fas fa-check"></i> Trọng lượng: 125g</li>
+                            <li><i class="fas fa-check"></i> Hạn sử dụng: 3 tháng</li>
+                        </ul>
+                        <div class="product-bottom">
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="btn btn-secondary">Coming Soon</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section section-light" id="team">
+        <div class="container">
+            <div class="section-title">
+                <span>Gặp Gỡ Đội Ngũ</span>
+                <h2>Những Người Sáng Lập</h2>
+                <p>Chúng tôi là những sinh viên đam mê ẩm thực thuần chay và có mong muốn tạo ra sản phẩm chất lượng cao từ nông sản Việt Nam.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-img">
+                        <img src="/img/songthanh.jpg" alt="Nguyễn Song Thành">
+                    </div>
+                    <div class="team-content">
+                        <h3 class="team-name">Nguyễn Song Thành</h3>
+                        <span class="team-position">Trưởng Nhóm</span>
+                        <p class="team-description">Sinh viên khoa Tài Chính - Thương Mại với đam mê về kinh doanh và ẩm thực thuần chay.</p>
+                        <div class="team-social">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-img">
+                        <img src="/img/ngocnhung.jpg" alt="Vũ Thị Ngọc Nhung">
+                    </div>
+                    <div class="team-content">
+                        <h3 class="team-name">Vũ Thị Ngọc Nhung</h3>
+                        <span class="team-position">Quản Lý Marketing</span>
+                        <p class="team-description">Chuyên gia về chiến lược marketing và phát triển thương hiệu trong lĩnh vực thực phẩm.</p>
+                        <div class="team-social">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-img">
+                        <img src="/img/chitin.jpg" alt="Nguyễn Dương Chí Tín">
+                    </div>
+                    <div class="team-content">
+                        <h3 class="team-name">Nguyễn Dương Chí Tín</h3>
+                        <span class="team-position">Phát Triển Sản Phẩm</span>
+                        <p class="team-description">Phụ trách nghiên cứu và phát triển công thức sản phẩm, đảm bảo chất lượng vượt trội.</p>
+                        <div class="team-social">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-img">
+                        <img src="/img/quynhnhu.jpg" alt="Ngô Đặng Quỳnh Như">
+                    </div>
+                    <div class="team-content">
+                        <h3 class="team-name">Ngô Đặng Quỳnh Như</h3>
+                        <span class="team-position">Quản Lý Tài Chính</span>
+                        <p class="team-description">Chịu trách nhiệm về kế hoạch tài chính và quản lý ngân sách cho dự án.</p>
+                        <div class="team-social">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="section section-white" id="values">
+        <div class="container">
+            <div class="section-title">
+                <span>Giá Trị Cốt Lõi</span>
+                <h2>Những Giá Trị Chúng Tôi Theo Đuổi</h2>
+                <p>Chúng tôi cam kết mang đến những sản phẩm chất lượng cao, dựa trên các giá trị cốt lõi và tầm nhìn dài hạn.</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="value-title">100% Thuần Chay</h3>
+                    <p class="value-description">Sản phẩm của chúng tôi không chứa bất kỳ thành phần nào từ động vật, phù hợp cho người thuần chay và những người muốn giảm tiêu thụ đạm động vật.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3 class="value-title">Dinh Dưỡng & Sức Khỏe</h3>
+                    <p class="value-description">Giàu protein thực vật, chất béo không bão hòa, vitamin và khoáng chất. Hỗ trợ sức khỏe tim mạch và cung cấp năng lượng bền vững.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 class="value-title">Bền Vững Môi Trường</h3>
+                    <p class="value-description">Tận dụng hạt điều vụn, giảm lãng phí nông sản và góp phần tạo nên một hệ thống thực phẩm bền vững hơn cho Việt Nam.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="value-title">Chất Lượng Đảm Bảo</h3>
+                    <p class="value-description">Chứng nhận vệ sinh an toàn thực phẩm, tuân thủ các quy trình sản xuất nghiêm ngặt và kiểm soát chất lượng thường xuyên.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="value-title">Phát Triển Cộng Đồng</h3>
+                    <p class="value-description">Tạo việc làm cho người dân địa phương và hỗ trợ nông dân trồng điều, góp phần phát triển kinh tế địa phương.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="value-title">Sáng Tạo Không Ngừng</h3>
+                    <p class="value-description">Liên tục nghiên cứu và phát triển công thức mới, cải tiến sản phẩm để đáp ứng nhu cầu ngày càng đa dạng của người tiêu dùng.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Business Model Section -->
+    <section class="section section-light" id="business">
+        <div class="container">
+            <div class="section-title">
+                <span>Mô Hình Kinh Doanh</span>
+                <h2>Chiến Lược Phát Triển</h2>
+                <p>Chúng tôi xây dựng một mô hình kinh doanh bền vững, dựa trên sự minh bạch và giá trị thiết thực cho khách hàng.</p>
+            </div>
+            <div class="business-tabs">
+                <button class="tab-btn active" data-tab="vision">Tầm Nhìn & Sứ Mệnh</button>
+                <button class="tab-btn" data-tab="partners">Đối Tác Chính</button>
+                <button class="tab-btn" data-tab="revenue">Dòng Doanh Thu</button>
+                <button class="tab-btn" data-tab="customer">Phân Khúc Khách Hàng</button>
+                <button class="tab-btn" data-tab="distribution">Kênh Phân Phối</button>
+            </div>
+            <div class="tab-content active" id="vision-tab">
+                <h3>Tầm Nhìn & Sứ Mệnh</h3>
+                <p><strong>Tầm nhìn:</strong> Pate hạt điều vụn sẽ trở thành thương hiệu thực phẩm pate chay hàng đầu của Việt Nam và Quốc tế, góp phần phát triển xu hướng ăn uống lành mạnh và bền vững.</p>
+                <p><strong>Sứ mệnh:</strong> Pate hạt điều vụn cam kết mang lại sản phẩm nguồn gốc tự nhiên, giàu chất xơ nhưng vẫn đảm bảo an toàn thực phẩm, mang đến sự tự nhiên và lành mạnh cho mọi người, tạo công ăn việc làm cho người dân và tạo nên giá trị bền vững, góp phần bảo vệ môi trường và sức khỏe cộng đồng.</p>
+                <p><strong>Mục tiêu:</strong> Pate điều vụn sẽ là lựa chọn thay thế hàng đầu cho pate mặn, đáp ứng được mong muốn của những người ăn chay hoặc những người mong muốn có một chế độ ăn uống lành mạnh. Vẫn có thể thưởng thức hương vị của pate món ăn bình dân nhưng chất lượng cao cấp -- vệ sinh an toàn thực phẩm, đáp ứng được nhu cầu và kỳ vọng của khách hàng.</p>
+            </div>
+            <div class="tab-content" id="partners-tab">
+                <h3>Đối Tác Chính</h3>
+                <div class="tab-grid">
+                    <div class="tab-card">
+                        <h4>Đơn Vị Cung Cấp</h4>
+                        <ul class="tab-card-list">
+                            <li><i class="fas fa-check"></i> Đơn vị cung cấp hộp, bao bì</li>
+                            <li><i class="fas fa-check"></i> Đơn vị cung cấp hạt điều vụn</li>
+                            <li><i class="fas fa-check"></i> Đơn vị cung cấp hương liệu</li>
+                            <li><i class="fas fa-check"></i> Đơn vị cung cấp thiết bị</li>
+                        </ul>
+                    </div>
+                    <div class="tab-card">
+                        <h4>Đối Tác Vận Chuyển</h4>
+                        <ul class="tab-card-list">
+                            <li><i class="fas fa-check"></i> Đối tác vận chuyển và logistics</li>
+                            <li><i class="fas fa-check"></i> Hệ thống vận chuyển nội địa</li>
+                            <li><i class="fas fa-check"></i> Đơn vị giao hàng trực tuyến</li>
+                        </ul>
+                    </div>
+                    <div class="tab-card">
+                        <h4>Đối Tác Thương Mại</h4>
+                        <ul class="tab-card-list">
+                            <li><i class="fas fa-check"></i> Đối tác thương mại quốc tế</li>
+                            <li><i class="fas fa-check"></i> Các cửa hàng bán lẻ</li>
+                            <li><i class="fas fa-check"></i> Hệ thống siêu thị</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="revenue-tab">
+                <h3>Dòng Doanh Thu</h3>
+                <div class="tab-grid">
+                    <div class="tab-card">
+                        <h4>Kênh Bán Hàng Trực Tiếp</h4>
+                        <ul class="tab-card-list">
+                            <li><i class="fas fa-check"></i> Các hệ thống siêu thị, cửa hàng tiện lợi</li>
+                            <li><i class="fas fa-check"></i> Cửa hàng tạp hóa, quán cà phê</li>
+                            <li><i class="fas fa-check"></i> Đồ ăn gần trường học</li>
+                            <li><i class="fas fa-check"></i> Các quầy bán hàng ở các trạm xe, nhà ga</li>
+                        </ul>
+                    </div>
+                    <div class="tab-card">
+                        <h4>Kênh Bán Hàng Trực Tuyến</h4>
+                        <ul class="tab-card-list">
+                            <li><i class="fas fa-check"></i> Sàn thương mại điện tử: Shopee, Tiki, Sendo</li>
+                            <li><i class="fas fa-check"></i> Mạng xã hội: Facebook, TikTok, Instagram</li>
+                            <li><i class="fas fa-check"></i> Website thương hiệu</li>
+                        </ul>
+                    </div>
+                    <div class="tab-card">
+                        <h4>Xuất Khẩu</h4>
+                        <ul class="tab-card-list">
+                            <li><i class="fas fa-check"></i> Các đơn vị nhập khẩu và phân phối ở quốc gia đích</li>
+                            <li><i class="fas fa-check"></i> Đối tác quốc tế</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="customer-tab">
+                <h3>Phân Khúc Khách Hàng</h3>
+                <div class="tab-grid">
+                    <div class="tab-card">
+                        <h4>Khách Hàng Chính</h4>
+                        <ul class="tab-card-list">
+                            <li><i class="fas fa-check"></i> Người ăn chay và thuần chay</li>
+                            <li><i class="fas fa-check"></i> Người tiêu dùng có ý thức về sức khỏe</li>
+                            <li><i class="fas fa-check"></i> Người yêu thích đồ ăn đường phố</li>
+                        </ul>
+                    </div>
+                    <div class="tab-card">
+                        <h4>Khách Hàng Tiềm Năng</h4>
+                        <ul class="tab-card-list">
+                            <li><i class="fas fa-check"></i> Người đang ăn kiêng</li>
+                            <li><i class="fas fa-check"></i> Những người tiêu dùng có thu nhập từ mức trung bình và cao</li>
+                            <li><i class="fas fa-check"></i> Người dị ứng đạm động vật</li>
+                        </ul>
+                    </div>
+                    <div class="tab-card">
+                        <h4>Mối Quan Hệ Khách Hàng</h4>
+                        <ul class="tab-card-list">
+                            <li><i class="fas fa-check"></i> Chăm sóc khách hàng: tạo mối quan hệ tốt, lắng nghe ý kiến</li>
+                            <li><i class="fas fa-check"></i> Tạo niềm tin: cung cấp sản phẩm đúng chất lượng</li>
+                            <li><i class="fas fa-check"></i> Chương trình khách hàng: khuyến mãi, giảm giá, ưu đãi đặc biệt</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="distribution-tab">
+                <h3>Kênh Phân Phối</h3>
+                <div class="tab-grid">
+                    <div class="tab-card">
+                        <h4>Kênh Truyền Thống</h4>
+                        <ul class="tab-card-list">
+                            <li><i class="fas fa-check"></i> Các cấp đại lý, cửa hàng tạp hóa</li>
+                            <li><i class="fas fa-check"></i> Quán ăn, quán cà phê</li>
+                        </ul>
+                    </div>
+                    <div class="tab-card">
+                        <h4>Kênh Hiện Đại</h4>
+                        <ul class="tab-card-list">
+                            <li><i class="fas fa-check"></i> Các hệ thống siêu thị, cửa hàng tiện lợi</li>
+                            <li><i class="fas fa-check"></i> Sàn thương mại điện tử: Shopee, TikTok, Tiki</li>
+                            <li><i class="fas fa-check"></i> Website thương hiệu</li>
+                        </ul>
+                    </div>
+                    <div class="tab-card">
+                        <h4>Kênh Quốc Tế</h4>
+                        <ul class="tab-card-list">
+                            <li><i class="fas fa-check"></i> Các đơn vị nhập khẩu và phân phối ở quốc gia đích</li>
+                            <li><i class="fas fa-check"></i> Hệ thống vận chuyển và logistics quốc tế</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="section section-white" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <span>Liên Hệ</span>
+                <h2>Kết Nối Với Chúng Tôi</h2>
+                <p>Chúng tôi luôn sẵn sàng lắng nghe ý kiến của bạn. Hãy liên hệ với chúng tôi nếu bạn có bất kỳ câu hỏi hay đề xuất nào.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Thông Tin Liên Hệ</h3>
+                    <p>Chúng tôi luôn mong muốn được hỗ trợ và phục vụ bạn tốt nhất. Liên hệ với chúng tôi qua các kênh sau:</p>
+                    <ul class="contact-list">
+                        <li class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Địa Chỉ</h4>
+                                <p>Khoa Tài Chính - Thương Mại, Trường Đại Học Công Nghệ TP.HCM</p>
+                            </div>
+                        </li>
+                        <li class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Điện Thoại</h4>
+                                <p><a href="tel:0522949161">052 294 9161</a></p>
+                            </div>
+                        </li>
+                        <li class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p><a href="mailto:thanhnguyensong10a5@gmail.com">thanhnguyensong10a5@gmail.com</a></p>
+                            </div>
+                        </li>
+                        <li class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Giờ Làm Việc</h4>
+                                <p>Thứ Hai - Thứ Sáu: 8:00 - 17:00</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="contact-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Họ và Tên *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" placeholder="Số Điện Thoại">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Tiêu Đề">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Tin Nhắn *" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Gửi Tin Nhắn</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-widget">
+                    <h4>Về Chúng Tôi</h4>
+                    <p>Pate Thuần Chay "Điều Vàng Việt" tự hào mang đến sản phẩm chất lượng cao từ hạt điều Việt Nam, đáp ứng nhu cầu dinh dưỡng và hương vị cho người tiêu dùng.</p>
+                    <div class="contact-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-widget">
+                    <h4>Liên Kết Nhanh</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Trang Chủ</a></li>
+                        <li><a href="#about">Về Chúng Tôi</a></li>
+                        <li><a href="#products">Sản Phẩm</a></li>
+                        <li><a href="#team">Đội Ngũ</a></li>
+                        <li><a href="#values">Giá Trị Cốt Lõi</a></li>
+                        <li><a href="#business">Mô Hình Kinh Doanh</a></li>
+                        <li><a href="#contact">Liên Hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>Sản Phẩm</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Pate Điều Vàng Truyền Thống</a></li>
+                        <li><a href="#">Pate Điều Vàng Hạnh Nhân</a></li>
+                        <li><a href="#">Pate Điều Vàng Hành Nướng</a></li>
+                        <li><a href="#">Sản Phẩm Mới</a></li>
+                        <li><a href="#">Combo Quà Tặng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>Nhận Thông Tin</h4>
+                    <p>Đăng ký để nhận thông tin về sản phẩm mới và khuyến mãi đặc biệt.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Email của bạn" required>
+                        <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Pate Thuần Chay "Điều Vàng Việt". Đã đăng ký bản quyền.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <!-- JavaScript -->
+    <script>
+        // DOM Elements
+        const header = document.getElementById('header');
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const backToTop = document.getElementById('backToTop');
+        const scrollDown = document.getElementById('scroll-down');
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+        
+        // Toggle Menu
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Header Scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+                backToTop.classList.add('active');
+            } else {
+                header.classList.remove('scrolled');
+                backToTop.classList.remove('active');
+            }
+        });
+        
+        // Scroll Down Button
+        scrollDown.addEventListener('click', () => {
+            window.scrollTo({
+                top: window.innerHeight,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Back to Top Button
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Tabs
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(btn => btn.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const tabId = btn.getAttribute('data-tab');
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                    content.style.display = 'none';
+                });
+                
+                document.getElementById(`${tabId}-tab`).classList.add('active');
+                document.getElementById(`${tabId}-tab`).style.display = 'block';
+            });
+        });
+        
+        // Product Filters
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                productCards.forEach(card => {
+                    if (filter === 'all') {
+                        card.style.display = 'block';
+                    } else if (card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    navMenu.classList.remove('active');
+                    navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Cảm ơn bạn đã liên hệ với chúng tôi! Chúng tôi sẽ phản hồi trong thời gian sớm nhất.');
+                contactForm.reset();
+            });
+        }
+        
+        // Newsletter Form Submission
+        const newsletterForm = document.querySelector('.newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Cảm ơn bạn đã đăng ký nhận thông tin từ chúng tôi!');
+                newsletterForm.reset();
+            });
+        }
+        
+        // Active Navigation Link on Scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-item a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
